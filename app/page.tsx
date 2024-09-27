@@ -281,7 +281,7 @@ export default function Home() {
       </nav>
 
       <main className="flex-grow">
-        <div className="relative h-[85vh] overflow-hidden">
+        <div className="relative h-[90vh] overflow-hidden">
           {images.map((image, index) => (
             <div
               key={index}
