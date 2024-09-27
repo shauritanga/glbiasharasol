@@ -3,10 +3,14 @@ import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import FeatureSection from "./components/features";
 
 const images = [
   { src: "/1.jpg", text: "Welcome to our amazing tourist sites in Zanzibar" },
   { src: "/2.jpg", text: "Discover the coolest place to rest" },
+  { src: "/3.jpg", text: "Quality heath services from KAIRUKI hospital" },
+  { src: "/4.jpg" },
 ];
 
 const testimonials = [
@@ -14,21 +18,24 @@ const testimonials = [
     id: 1,
     name: "John Doe",
     role: "CEO",
-    comment: "This product has revolutionized our business operations.",
+    comment:
+      "When I want to hire, Glbiasharasol has by back. There are great people in here, we just happened to know each other through footbal clubs",
     avatar: "/avatar1.jpg",
   },
   {
     id: 2,
     name: "Jane Smith",
     role: "Designer",
-    comment: "I can't imagine working without this tool now.",
+    comment:
+      "I can't imagine working without this tool now. I am now able to sell by products worldwide",
     avatar: "/avatar2.jpg",
   },
   {
     id: 3,
     name: "Mike Johnson",
     role: "Developer",
-    comment: "The efficiency gains are truly remarkable.",
+    comment:
+      "Meeting with people doing the same thing and able to start conversation on the internet was tough, but GLbiashara made it simple",
     avatar: "/avatar3.jpg",
   },
   {
@@ -42,7 +49,8 @@ const testimonials = [
     id: 5,
     name: "Alex Lee",
     role: "Entrepreneur",
-    comment: "A game-changer for startups. Highly recommended!",
+    comment:
+      "Entertainging and doing business with peple worldwide is real revolution!",
     avatar: "/avatar5.jpg",
   },
 ];
@@ -304,55 +312,13 @@ export default function Home() {
         </div>
 
         {/* Product Feature Showcase */}
-        <div className="bg-white py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-              Our Product Features
-            </h2>
-            <div className="flex flex-col md:flex-row">
-              {/* Tabs */}
-              <div className="md:w-1/3 mb-6 md:mb-0">
-                {productFeatures.map((feature) => (
-                  <button
-                    key={feature.id}
-                    onClick={() => setActiveFeature(feature.id)}
-                    className={`block w-full text-left px-4 py-2 mb-2 rounded ${
-                      activeFeature === feature.id
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    }`}
-                  >
-                    {feature.icon} {feature.title}
-                  </button>
-                ))}
-              </div>
-              {/* Feature Description */}
-              <div className="md:w-2/3 md:pl-8">
-                {productFeatures.map((feature) => (
-                  <div
-                    key={feature.id}
-                    className={`transition-opacity duration-300 ${
-                      activeFeature === feature.id
-                        ? "opacity-100"
-                        : "opacity-0 hidden"
-                    }`}
-                  >
-                    <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                    <p className="text-gray-600 text-lg">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        <FeatureSection />
 
         {/* Testimonials Section */}
-        <div className="bg-gray-100 py-12">
+        <div className="bg-gray-100 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-extrabold text-gray-900 mb-8">
-              What Our Customers Say
+              People's overview on GLbiasharasol
             </h2>
             <div className="relative">
               <div
@@ -401,11 +367,155 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="bg-gray-800 text-white py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center">
-            &copy; 2024 Your Company. All rights reserved.
-          </p>
+      <footer className="bg-gray-800 text-white pt-12 pb-4">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div>
+              <h4 className="font-bold mb-4">PRODUCT</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <Link href="#">Recruiting talents</Link>
+                </li>
+                <li>
+                  <Link href="#">Link people worldwide</Link>
+                </li>
+                <li>
+                  <Link href="#">Automate & hire</Link>
+                </li>
+                <li>
+                  <Link href="#">Onboard & manage</Link>
+                </li>
+                <li>
+                  <Link href="#">Reduce time to hire</Link>
+                </li>
+                <li>
+                  <Link href="#">Improve DEI</Link>
+                </li>
+                <li>
+                  <Link href="#">Ensure compliance</Link>
+                </li>
+                <li>
+                  <Link href="#">All features</Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">PLATFORM</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <Link href="#">Meeting people you share interest</Link>
+                </li>
+                <li>
+                  <Link href="#">Why Glbiasharasol</Link>
+                </li>
+                <li>
+                  <Link href="#">Post a job for free</Link>
+                </li>
+                <li>
+                  <Link href="#">Help center</Link>
+                </li>
+                <li>
+                  <Link href="#">Partners & integrations</Link>
+                </li>
+                <li>
+                  <Link href="#">Become a partner</Link>
+                </li>
+                <li>
+                  <Link href="#">Security</Link>
+                </li>
+                <li>
+                  <Link href="#">Real-time customer satisfaction</Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">EMPLOYER RESOURCES</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <Link href="#">Job descriptions</Link>
+                </li>
+                <li>
+                  <Link href="#">Applicant tracking</Link>
+                </li>
+                <li>
+                  <Link href="#">Interview questions</Link>
+                </li>
+                <li>
+                  <Link href="#">Hiring resources</Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">JOBSEEKER RESOURCES</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <Link href="#">Search for jobs</Link>
+                </li>
+                <li>
+                  <Link href="#">Career center</Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">GLBIASHARASOL</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <Link href="#">Work with us</Link>
+                </li>
+                <li>
+                  <Link href="#">Backstage</Link>
+                </li>
+                <li>
+                  <Link href="#">Press</Link>
+                </li>
+                <li>
+                  <Link href="#">Contact us</Link>
+                </li>
+                <li>
+                  <Link href="#">About</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-600 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400">
+              &copy; Glbiasharasol Limited 2024-2024
+            </p>
+            <div className="flex space-x-4 mt-4 md:mt-0">
+              <a href="#" className="text-white hover:text-gray-400">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" className="text-white hover:text-gray-400">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#" className="text-white hover:text-gray-400">
+                <i className="fab fa-linkedin"></i>
+              </a>
+              <a href="#" className="text-white hover:text-gray-400">
+                <i className="fab fa-instagram"></i>
+              </a>
+            </div>
+
+            <div className="flex space-x-4 mt-4 md:mt-0">
+              <Link href="#">
+                <Image
+                  src="/apple-store.png"
+                  alt="Download on the App Store"
+                  width={150}
+                  height={40}
+                />
+              </Link>
+              <Link href="#">
+                <Image
+                  src="/google-play.png"
+                  alt="Get it on Google Play"
+                  width={150}
+                  height={40}
+                />
+              </Link>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
