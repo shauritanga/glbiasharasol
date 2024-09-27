@@ -21,7 +21,7 @@ const testimonials = [
     id: 2,
     name: "Jane Smith",
     role: "Designer",
-    comment: "I can't imagine working without this tool now.",
+    comment: `I can&apos;t imagine working without this tool now.`,
     avatar: "/avatar2.jpg",
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     id: 4,
     name: "Sarah Brown",
     role: "Marketing Manager",
-    comment: "Our team's productivity has skyrocketed thanks to this product.",
+    comment: "Our teams productivity has skyrocketed thanks to this product.",
     avatar: "/avatar4.jpg",
   },
   {
