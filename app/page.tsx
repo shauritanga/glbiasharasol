@@ -217,15 +217,51 @@ export default function Home() {
               </Link>
               <a
                 href="#"
-                className="text-gray-800 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
               >
-                About
+                Clubs
               </a>
               <a
                 href="#"
-                className="text-gray-800 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
               >
-                Contact
+                Entrepreneur
+              </a>
+              <a
+                href="#"
+                className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Technologies
+              </a>
+              <a
+                href="#"
+                className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Health
+              </a>
+              <a
+                href="#"
+                className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Financial
+              </a>
+              <a
+                href="#"
+                className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Tourism
+              </a>
+              <a
+                href="#"
+                className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Talents
+              </a>
+              <a
+                href="#"
+                className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                CVs
               </a>
               <Link
                 href="/signin"
