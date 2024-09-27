@@ -55,33 +55,6 @@ const testimonials = [
   },
 ];
 
-const productFeatures = [
-  {
-    id: "feature1",
-    title: "Easy Integration",
-    description: "Seamlessly integrate with your existing tools and workflows.",
-    icon: "🔗",
-  },
-  {
-    id: "feature2",
-    title: "Advanced Analytics",
-    description: "Gain deep insights with our powerful analytics dashboard.",
-    icon: "📊",
-  },
-  {
-    id: "feature3",
-    title: "Secure & Reliable",
-    description: "Bank-level security ensures your data is always protected.",
-    icon: "🔒",
-  },
-  {
-    id: "feature4",
-    title: "24/7 Support",
-    description: "Our dedicated team is always ready to assist you.",
-    icon: "🆘",
-  },
-];
-
 export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
