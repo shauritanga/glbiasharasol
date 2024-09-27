@@ -85,7 +85,7 @@ const productFeatures = [
 export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeFeature, setActiveFeature] = useState(productFeatures[0].id);
+  // const [activeFeature, setActiveFeature] = useState(productFeatures[0].id);
   const testimonialRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
