@@ -21,7 +21,7 @@ const testimonials = [
     id: 2,
     name: "Jane Smith",
     role: "Designer",
-    comment: `I can&apos;t imagine working without this tool now.`,
+    comment: "I can't imagine working without this tool now.",
     avatar: "/avatar2.jpg",
   },
   {
