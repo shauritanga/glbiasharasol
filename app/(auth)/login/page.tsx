@@ -61,7 +61,7 @@ export default function SignupForm() {
             <Input id="password" name="password" type="password" required />
           </div>
           <Button type="submit" className="w-full" disabled={isLoading}>
-            {isLoading ? "Signing up..." : "Sign Up"}
+            {isLoading ? "Signing in..." : "Sign In"}
           </Button>
         </form>
 
