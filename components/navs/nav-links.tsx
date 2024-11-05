@@ -12,7 +12,7 @@ const navLinks: NavLink[] = [
   { name: "Clubs", href: "/clubs" },
   { name: "Health", href: "/health" },
   { name: "Talents", href: "/talents" },
-  { name: "CV", href: "/cv" },
+  { name: "Schools", href: "/schools" },
   { name: "Technology", href: "/technology" },
   { name: "Financial", href: "/financial" },
   { name: "Entrepreneur", href: "/entrepreneur" },
@@ -25,7 +25,7 @@ const navLinks: NavLink[] = [
 const NavBar: React.FC = async () => {
   const session = await auth();
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+    <nav className="sticky bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="text-2xl font-bold">
