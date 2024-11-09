@@ -44,6 +44,12 @@ model User {
   image         String?
   role          UserRole  @default(USER)
   club          String?
+  phone         String    @unique
+  profession    String
+  region        String
+  district      String
+  ward          String
+  village       String
   password      String?
   accounts      Account[]
   sessions      Session[]

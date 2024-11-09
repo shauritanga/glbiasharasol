@@ -41,7 +41,7 @@ export default function SignupForm() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <form
           action={handleSubmit}
-          className="w-full max-w-md space-y-4 bg-white p-8 rounded-lg shadow-md"
+          className="w-full max-w-md space-y-4 bg-white p-8 rounded-lg shadow-md m-8"
         >
           <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
           <div className="space-y-2">
@@ -55,6 +55,26 @@ export default function SignupForm() {
             />
           </div>
           <div className="space-y-2">
+            <Label htmlFor="profession">Profession</Label>
+            <Input
+              id="profession"
+              name="profession"
+              type="profession"
+              required
+              placeholder="Enter your profession"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="phone">Phone Number</Label>
+            <Input
+              id="phone"
+              name="phone"
+              type="phone"
+              required
+              placeholder="Enter your phone"
+            />
+          </div>
+          <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
               id="email"
@@ -62,6 +82,46 @@ export default function SignupForm() {
               type="email"
               required
               placeholder="Enter your email address"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="region">region</Label>
+            <Input
+              id="region"
+              name="region"
+              type="region"
+              required
+              placeholder="Enter your region"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="district">district</Label>
+            <Input
+              id="district"
+              name="district"
+              type="district"
+              required
+              placeholder="Enter your district"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="ward">Ward</Label>
+            <Input
+              id="ward"
+              name="ward"
+              type="ward"
+              required
+              placeholder="Enter your ward"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="village">STreet/village</Label>
+            <Input
+              id="village"
+              name="village"
+              type="village"
+              required
+              placeholder="Enter your street"
             />
           </div>
           <div className="space-y-2">

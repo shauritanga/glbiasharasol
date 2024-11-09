@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 export async function registerUser(formData: FormData) {
   const fields = Object.fromEntries(formData.entries());
 
-  const { name, email, club, password } = fields;
+  const { name, email, club, password, profession, phone, ward,district, region, village} = fields;
 
   try {
     const existingUser = await db.user.findFirst({
@@ -26,6 +26,13 @@ export async function registerUser(formData: FormData) {
         password: hash,
         club: club.toString(),
         name: name.toString(),
+        profession:profession.toString(),
+        region:region.toString(),
+        ward:ward.toString(),
+        district:district.toString(),
+        village:village.toString(),
+        phone:phone.toString(),
+        
       },
     });
 
