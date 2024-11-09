@@ -17,7 +17,7 @@ export default function SchoolsPage() {
         <source src="movie.ogg" type="video/ogg" />
         Your browser does not support the video tag.
       </video>
-      <p className="m-2">Schools</p>
+      <p className="m-2">Educational institutions</p>
       <div className="grid grid-cols-4 gap-4 p-2">
         {[
           "Mikocheni",
