@@ -23,3 +23,6 @@ export const RegisterSchema = z.object({
     message: "Password is should be atleast 6 characters",
   }),
 });
+
+
+

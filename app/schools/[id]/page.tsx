@@ -4,11 +4,24 @@ import Image from "next/image";
 import ParentsComponent from "@/components/parent";
 import Programmes from "@/components/programs";
 import Articles from "@/components/articles";
+import { Parents } from "@/lib/types";
 
 export default async function SchoolDetailPage() {
-  const response = await db.user.findMany();
-  console.log("Hello");
-  console.log({ response });
+  const response: Parents = await db.user.findMany({
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      phone: true,
+      profession: true,
+      region: true,
+      district: true,
+      ward: true,
+      village: true,
+      club: true,
+    },
+  });
+
   return (
     <div className="min-h-screen w-full flex flex-col items-center bg-slate-50">
       <Image
@@ -24,7 +37,7 @@ export default async function SchoolDetailPage() {
         Educational articles and tutorials
       </h1>
       <Articles />
-      <ParentsComponent />
+      <ParentsComponent parents={response} />
     </div>
   );
 }
