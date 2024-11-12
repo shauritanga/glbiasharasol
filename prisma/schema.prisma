@@ -69,6 +69,21 @@ model VerificationToken {
   @@map("verification_tokens")
 }
 
+model Student {
+  id           String  @unique @default(cuid())
+  name         String
+  class        String
+  school       String
+  talent       String?
+  course       String?
+  email        String  @unique
+  phone        String
+  parent_phone String
+  business     String?
+
+  @@map("students")
+}
+
 enum UserRole {
   ADMIN
   USER
