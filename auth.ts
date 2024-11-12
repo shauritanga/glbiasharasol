@@ -37,13 +37,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: {},
       },
       async authorize(credentials) {
+        console.log("Hello");
         const validatedFields = LoginSchema.safeParse(credentials);
         if (validatedFields.success) {
+          console.log("1234");
           const { email, password } = validatedFields.data;
-
+         
           const user = await getUserByEmail(email);
+          console.log(user);
           if (!user || !user.password) return null;
+          console.log("Hapa inafika");
           const isMatch = await bcrypt.compare(password, user.password);
+          console.log(isMatch);
           if (isMatch) {
             return user;
           }

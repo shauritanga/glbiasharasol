@@ -16,6 +16,7 @@ export default async function SchoolDetailPage() {
       profession: true,
       region: true,
       district: true,
+      business: true,
       ward: true,
       village: true,
       club: true,

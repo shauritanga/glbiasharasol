@@ -17,6 +17,7 @@ export async function signInUser(formData: FormData) {
     });
     return { success: true, message: "Signup successful!" };
   } catch (error: any) {
+    console.log(error.message)
     return { success: true, message: error.message };
   }
 }

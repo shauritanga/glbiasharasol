@@ -37,22 +37,25 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime? @map("email_verified")
-  image         String?
-  role          UserRole  @default(USER)
-  club          String?
-  phone         String    @unique
-  profession    String
-  region        String
-  district      String
-  ward          String
-  village       String
-  password      String?
-  accounts      Account[]
-  sessions      Session[]
+  id              String    @id @default(cuid())
+  name            String?
+  email           String?   @unique
+  emailVerified   DateTime? @map("email_verified")
+  image           String?
+  role            UserRole  @default(USER)
+  club            String?
+  password        String?
+  business        String?
+  district        String
+  education_level String?
+  institute       String?
+  phone           String
+  profession      String?
+  region          String
+  village         String
+  ward            String
+  accounts        Account[]
+  sessions        Session[]
 
   @@map("users")
 }

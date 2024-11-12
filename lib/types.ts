@@ -1,7 +1,8 @@
 export type Parents = {
     id:string,
-    profession:string,
+    profession:string|null,
     ward:string,
+    business:String|null,
     region:string,
     village:string,
     name:string|null,

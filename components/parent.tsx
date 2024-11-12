@@ -24,9 +24,10 @@ export default function ParentsComponent({ parents }: { parents: Parents }) {
               <div className="w-12 h-12 rounded-full bg-slate-400"></div>
               <div className="flex  flex-col">
                 <span>{parent.name}</span>
-                <span className="text-gray-400">{`${parent.profession
-                  .split("")
-                  ["0"].toUpperCase()}${parent.profession.slice(1)}`}</span>
+                <span className="text-gray-400">{` ${
+                  parent.profession &&
+                  parent.profession?.split("")["0"].toUpperCase()
+                }${parent.profession?.slice(1)}`}</span>
                 <span className="text-gray-400">{`${parent.region
                   .split("")
                   ["0"].toUpperCase()}${parent.region.slice(1)}`}</span>
