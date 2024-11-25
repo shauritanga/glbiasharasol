@@ -55,6 +55,7 @@ model User {
   village         String
   ward            String
   accounts        Account[]
+  posts           Post[]
   sessions        Session[]
 
   @@map("users")
@@ -82,6 +83,43 @@ model Student {
   business     String?
 
   @@map("students")
+}
+
+model Post {
+  id          String   @unique @default(cuid())
+  title       String
+  description String
+  userId      String
+  createdAt   DateTime @default(now())
+  mediaData   Bytes
+  mediaName   String
+  mediaType   String
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@map("posts")
+}
+
+model Club {
+  id         String   @unique @default(cuid())
+  name       String
+  stadiumUrl String
+  honors     String[]
+  images     String[]
+  sponsors   String[]
+  players    Player[]
+
+  @@map("clubs")
+}
+
+model Player {
+  id       String @unique @default(cuid())
+  name     String
+  number   String
+  imageUrl String
+  clubId   String
+  club     Club   @relation(fields: [clubId], references: [id])
+
+  @@map("players")
 }
 
 enum UserRole {

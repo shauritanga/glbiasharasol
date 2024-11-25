@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/select";
 import { Trophy, Users } from "lucide-react";
 import Link from "next/link";
+import { VideoSlider } from "@/components/video_slider";
 
 const clubs = [
   {
@@ -37,54 +38,16 @@ const clubs = [
     trophies: 66,
     image: "/placeholder.svg?height=200&width=300&text=Manchester+United",
   },
-  {
-    id: 3,
-    name: "Bayern Munich",
-    country: "Germany",
-    fans: "60M+",
-    trophies: 82,
-    image: "/placeholder.svg?height=200&width=300&text=Bayern+Munich",
-  },
-  {
-    id: 4,
-    name: "Real Madrid",
-    country: "Spain",
-    fans: "100M+",
-    trophies: 98,
-    image: "/placeholder.svg?height=200&width=300&text=Real+Madrid",
-  },
+
   {
     id: 5,
-    name: "Liverpool FC",
+    name: "Chelsea",
     country: "England",
     fans: "65M+",
     trophies: 67,
     image: "/placeholder.svg?height=200&width=300&text=Liverpool+FC",
   },
-  {
-    id: 6,
-    name: "Paris Saint-Germain",
-    country: "France",
-    fans: "43M+",
-    trophies: 45,
-    image: "/placeholder.svg?height=200&width=300&text=PSG",
-  },
-  {
-    id: 7,
-    name: "Juventus",
-    country: "Italy",
-    fans: "45M+",
-    trophies: 70,
-    image: "/placeholder.svg?height=200&width=300&text=Juventus",
-  },
-  {
-    id: 8,
-    name: "AC Milan",
-    country: "Italy",
-    fans: "40M+",
-    trophies: 49,
-    image: "/placeholder.svg?height=200&width=300&text=AC+Milan",
-  },
+
   {
     id: 9,
     name: "Yanga",

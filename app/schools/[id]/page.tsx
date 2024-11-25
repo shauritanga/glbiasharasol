@@ -1,10 +1,17 @@
-import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
-import Image from "next/image";
 import ParentsComponent from "@/components/parent";
 import Programmes from "@/components/programs";
 import Articles from "@/components/articles";
 import { Parents } from "@/lib/types";
+import FullHeightSlider from "@/components/slider";
+
+const images = [
+  "/kairuki.jpeg",
+  "/ivf.jpeg",
+  "/ivf2.jpeg",
+  "/mwinyi.jpg",
+  "/mwinyi2.jpeg",
+];
 
 export default async function SchoolDetailPage() {
   const response: Parents = await db.user.findMany({
@@ -25,13 +32,7 @@ export default async function SchoolDetailPage() {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center bg-slate-50">
-      <Image
-        src={"/kairuki.jpeg"}
-        alt="Kairuki image"
-        width={709}
-        height={500}
-        className="w-full h-[70vh]"
-      />
+      <FullHeightSlider images={images} />
       <h1 className="p-8 font-bold text-xl">Our Programmes</h1>
       <Programmes />
       <h1 className="p-8 font-bold text-xl">

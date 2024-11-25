@@ -187,10 +187,42 @@ export default function SignupForm() {
                   />
                 </div>
               </div>
+              <div className="w-full flex gap-4">
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="business">Business & Opportunities</Label>
+                  <select
+                    name="business"
+                    id="business"
+                    className="w-full border rounded p-2 bg-transparent"
+                  >
+                    <option value="" selected disabled>
+                      Select
+                    </option>
+                    <option value="agriculture">Agriculture</option>
+                    <option value="bee">Bee Keeping</option>
+                    <option value="general">General</option>
+                    <option value="cv">CV, Employment or Talents</option>
+                    <option value="manufacturing">Manufacturing</option>
+                    <option value="foods">Foods & Beverage</option>
+                    <option value="radio">Radio & TVs</option>
+                    <option value="tourism">Tourism</option>
+                    <option value="communication">
+                      Communication & Networks
+                    </option>
+                    <option value="eduction">REducation Provision</option>
+                    <option value="health">Health Services</option>
+                  </select>
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" name="password" type="password" required />
+                <div className="space-y-2 w-full">
+                  <Label htmlFor="password">Password</Label>
+                  <Input
+                    id="password"
+                    name="password"
+                    type="password"
+                    required
+                  />
+                </div>
               </div>
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? "Signing up..." : "Sign Up"}
@@ -332,7 +364,7 @@ export default function SignupForm() {
                     <option value="industrial_designer">
                       Industrial Designer
                     </option>
-                    <option value="architect">Architect</option>
+                    <option value="archiBusitect">Architect</option>
                     <option value="fine_artist">Fine Artist</option>
                     <option value="animator">Animator</option>
                     <option value="game_designer">Game Designer</option>
@@ -439,7 +471,7 @@ export default function SignupForm() {
                     <option value="firefighter">Firefighter</option>
                     <option value="public_defender">Public Defender</option>
                     <option value="prosecutor">Prosecutor</option>
-                    <option value="court_reporter">Court Reporter</option>
+                    <option value="Busi">Court Reporter</option>
                     <option value="criminal_investigator">
                       Criminal Investigator
                     </option>
@@ -740,7 +772,7 @@ export default function SignupForm() {
                   />
                 </div>
                 <div className="space-y-2 w-full">
-                  <Label htmlFor="business">Business</Label>
+                  <Label htmlFor="business">Business & Opportunities</Label>
                   <select
                     name="business"
                     id="business"
@@ -752,6 +784,16 @@ export default function SignupForm() {
                     <option value="agriculture">Agriculture</option>
                     <option value="bee">Bee Keeping</option>
                     <option value="general">General</option>
+                    <option value="cv">CV, Employment or Talents</option>
+                    <option value="manufacturing">Manufacturing</option>
+                    <option value="foods">Foods & Beverage</option>
+                    <option value="radio">Radio & TVs</option>
+                    <option value="tourism">Tourism</option>
+                    <option value="communication">
+                      Communication & Networks
+                    </option>
+                    <option value="eduction">REducation Provision</option>
+                    <option value="health">Health Services</option>
                   </select>
                 </div>
               </div>
