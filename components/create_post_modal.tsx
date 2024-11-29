@@ -16,12 +16,7 @@ import { Label } from "@/components/ui/label";
 interface CreatePostModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onCreatePost: (
-    title: string,
-    content: string,
-    author: string,
-    image: string
-  ) => Promise<void>;
+  onCreatePost: (formData: FormData) => Promise<void>;
 }
 
 export function CreatePostModal({
@@ -29,17 +24,14 @@ export function CreatePostModal({
   onClose,
   onCreatePost,
 }: CreatePostModalProps) {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [author, setAuthor] = useState("");
-  const [image, setImage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await onCreatePost(title, content, author, image);
-    setTitle("");
-    setContent("");
-    setAuthor("");
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    const formData = new FormData(event.currentTarget);
+    await onCreatePost(formData);
+    setIsSubmitting(true);
     onClose();
   };
 
@@ -53,45 +45,27 @@ export function CreatePostModal({
           <div className="space-y-4">
             <div>
               <Label htmlFor="title">Title</Label>
-              <Input
-                id="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-              />
+              <Input id="title" name="title" required />
             </div>
             <div>
-              <Label htmlFor="content">Content</Label>
-              <Textarea
-                id="content"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                required
-              />
+              <Label htmlFor="description">description</Label>
+              <Textarea id="description" name="description" required />
             </div>
             <div>
-              <Label htmlFor="author">Author</Label>
-              <Input
-                id="author"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="author">Author</Label>
+              <Label htmlFor="media">Media</Label>
               <Input
                 type="file"
                 accept="image/*, video/*"
-                id="author"
-                value={author}
-                onChange={(e) => setImage(e.target.value)}
+                id="media"
+                name="media"
                 required
               />
             </div>
           </div>
           <DialogFooter className="mt-4">
-            <Button type="submit">Create Post</Button>
+            <Button type="submit">
+              {isSubmitting ? "Creating..." : "Create Post"}
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>

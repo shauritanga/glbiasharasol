@@ -11,7 +11,7 @@ export const getUsers = async (chosenBusiness: String, club: String) => {
         ...(chosenBusiness != null
           ? {
               business: {
-                contains: chosenBusiness.toString(), // Apply filter condition
+                equals: chosenBusiness.toString(),
                 mode: "insensitive",
               },
             }
@@ -23,5 +23,19 @@ export const getUsers = async (chosenBusiness: String, club: String) => {
   } catch (error) {
     console.error("Error fetching users:", error);
     return [];
+  }
+};
+
+export const getUserByPhoneNumber = async (phone: string) => {
+  try {
+    const parent = await db.user.findFirst({
+      where: {
+        phone: phone,
+      },
+    });
+    return parent;
+  } catch (error) {
+    console.log(error);
+    return null;
   }
 };

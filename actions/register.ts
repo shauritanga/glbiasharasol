@@ -54,6 +54,16 @@ export async function registerUser(formData: FormData, kind: String) {
           club: club.toString(),
         },
       });
+      await db.student.create({
+        data: {
+          name: name.toString(),
+          email: email.toString(),
+          class: level.toString(),
+          schoolId: institution.toString(),
+          phone: phone.toString(),
+          parent_phone: phone.toString(),
+        },
+      });
 
       return { success: true, message: "Signup successful!" };
     } catch (error: any) {

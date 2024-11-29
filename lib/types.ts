@@ -24,6 +24,7 @@ export interface Post {
   title: string;
   content: string;
   author: string;
-  image: String;
+  type: String;
+  url: String;
   createdAt: string;
 }

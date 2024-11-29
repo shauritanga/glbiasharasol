@@ -71,16 +71,18 @@ model VerificationToken {
 }
 
 model Student {
-  id           String  @unique @default(cuid())
+  id           String   @unique @default(cuid())
   name         String
   class        String
-  school       String
   talent       String?
   course       String?
-  email        String  @unique
+  email        String   @unique
   phone        String
   parent_phone String
   business     String?
+  schoolId     String
+  parent       Parent[]
+  school       School   @relation(fields: [schoolId], references: [id])
 
   @@map("students")
 }
@@ -90,10 +92,12 @@ model Post {
   title       String
   description String
   userId      String
+  clubId      String
   createdAt   DateTime @default(now())
   mediaData   Bytes
   mediaName   String
   mediaType   String
+  club        Club     @relation(fields: [clubId], references: [id])
   user        User     @relation(fields: [userId], references: [id])
 
   @@map("posts")
@@ -103,10 +107,12 @@ model Club {
   id         String   @unique @default(cuid())
   name       String
   stadiumUrl String
+  logo       String
   honors     String[]
   images     String[]
   sponsors   String[]
   players    Player[]
+  posts      Post[]
 
   @@map("clubs")
 }
@@ -120,6 +126,27 @@ model Player {
   club     Club   @relation(fields: [clubId], references: [id])
 
   @@map("players")
+}
+
+model Parent {
+  id         String  @unique @default(cuid())
+  name       String
+  profession String
+  location   String
+  studentId  String
+  student    Student @relation(fields: [studentId], references: [id])
+}
+
+model School {
+  id       String    @unique @default(cuid())
+  name     String
+  email    String    @unique
+  country  String
+  region   String
+  district String
+  ward     String
+  street   String
+  students Student[]
 }
 
 enum UserRole {

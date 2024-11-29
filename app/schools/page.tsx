@@ -1,6 +1,8 @@
+import { fetchSchools } from "@/actions/fetch_schools";
 import Link from "next/link";
 
-export default function SchoolsPage() {
+export default async function SchoolsPage() {
+  const schools = await fetchSchools();
   return (
     <div className="min-h-screen container mx-auto mt-4">
       <div className="flex justify-between mb-2">
@@ -19,19 +21,10 @@ export default function SchoolsPage() {
       </video>
       <p className="m-2">Educational institutions</p>
       <div className="grid grid-cols-4 gap-4 p-2">
-        {[
-          "Mikocheni",
-          "Mwananyamala",
-          "Baobab",
-          "Feza",
-          "Olympio",
-          "Kairuki",
-          "Diamond",
-          "Ukwamani",
-        ].map((element) => (
-          <Link href={`schools/${element}`}>
+        {schools.map((school) => (
+          <Link href={`schools/${school.id}`}>
             <div className="w-full h-[150px] bg-slate-200 rounded p-2">
-              <p>{element}</p>
+              <p>{school.name}</p>
             </div>
           </Link>
         ))}

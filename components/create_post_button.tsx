@@ -2,21 +2,16 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { createPost } from "@/actions/post";
 import { useRouter } from "next/navigation";
 import { CreatePostModal } from "./create_post_modal";
+import addPost from "@/actions/add_post";
 
 export function CreatePostButton() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
 
-  const handleCreatePost = async (
-    title: string,
-    content: string,
-    author: string,
-    image: string
-  ) => {
-    await createPost(title, content, author, image);
+  const handleCreatePost = async (formData: FormData) => {
+    await addPost(formData);
     router.refresh(); // This will trigger a re-fetch of the posts
   };
 

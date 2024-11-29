@@ -2,8 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function FullHeightSlider({ images }: { images: String[] }) {
+export default function FullHeightSlider({
+  images,
+  linkTo = false,
+}: {
+  images: String[];
+  linkTo: Boolean;
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -23,13 +30,33 @@ export default function FullHeightSlider({ images }: { images: String[] }) {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Image
+          {linkTo ? (
+            <Link href={"https://www.nbc.co.tz/en/personal/"}>
+              <Image
+                src={src.toString()}
+                alt={`Slide ${index + 1}`}
+                layout="fill"
+                objectFit="cover"
+                priority={index === 0}
+              />
+            </Link>
+          ) : (
+            <Image
+              src={src.toString()}
+              alt={`Slide ${index + 1}`}
+              layout="fill"
+              objectFit="cover"
+              priority={index === 0}
+            />
+          )}
+
+          {/* <Image
             src={src}
             alt={`Slide ${index + 1}`}
             layout="fill"
             objectFit="cover"
             priority={index === 0}
-          />
+          /> */}
         </div>
       ))}
     </div>

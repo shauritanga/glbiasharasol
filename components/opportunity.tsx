@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
-import OpportunityPeople from "./list_of_likes";
 
-export default function Opportunity() {
+export default function OpportunityOptions({}) {
   const [filter, setFilter] = useState("");
   return (
     <div className="rounded border bg-transparent p-3">
@@ -27,7 +26,6 @@ export default function Opportunity() {
         <option value="eduction">Education Provision</option>
         <option value="health">Health Services</option>
       </select>
-      <OpportunityPeople filter={filter} />
     </div>
   );
 }

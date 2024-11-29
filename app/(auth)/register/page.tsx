@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,12 +8,29 @@ import { Label } from "@/components/ui/label";
 import { ToastProvider, ToastViewport } from "@/components/ui/toast";
 import { useToast } from "@/hooks/use-toast";
 import { registerUser } from "@/actions/register";
+import { db } from "@/lib/db";
+import { School } from "@prisma/client";
+import { fetchSchools } from "@/actions/fetch_schools";
 
 export default function SignupForm() {
   const { toast } = useToast();
   const router = useRouter();
+  const [schools, setSchools] = useState<School[]>([]);
+  const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [option, setOption] = useState("student");
+
+  useEffect(() => {
+    async function loadSchools() {
+      const schoolsData = await fetchSchools();
+      console.log(schoolsData);
+      setSchools(schoolsData);
+      setLoading(false);
+    }
+    loadSchools();
+  }, []);
+
+  if (loading) return <p>Loading schools...</p>;
 
   async function handleSubmit(formData: FormData) {
     setIsLoading(true);
@@ -87,13 +104,13 @@ export default function SignupForm() {
                     className="w-full p-2 border rounded bg-transparent"
                   >
                     <option value="" disabled>
-                      Select
+                      Select school
                     </option>
-                    <option value="olympio">Olympio</option>
-                    <option value="kairuki">Kairuki</option>
-                    <option value="mwananyamara">Mwananyamara</option>
-                    <option value="mikocheni">Mikocheni</option>
-                    <option value="kijitonyama">Kijitonyama</option>
+                    {schools.map((school) => (
+                      <option key={school.id} value={school.id}>
+                        {school.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>

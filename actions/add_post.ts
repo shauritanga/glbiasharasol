@@ -26,6 +26,7 @@ export default async function addPost(formData: FormData) {
         mediaName: media.name,
         mediaData: Buffer.from(mediaBuffer),
         userId: session?.user.id!,
+        clubId: "",
       },
     });
 

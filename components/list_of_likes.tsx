@@ -1,9 +1,13 @@
-import { use } from "react";
 import { getUsers } from "@/actions/get_user";
+import OpportunityOptions from "./opportunity";
 
-export default function OpportunityPeople({ filter }: { filter: string }) {
+export default async function OpportunityPeople({
+  filter,
+}: {
+  filter: string;
+}) {
   // Call the server action using the `use` hook
-  const users = use(getUsers(filter, "yanga"));
+  const users = await getUsers(filter, "yanga");
 
   if (!users) {
     return <p>No users found</p>;
@@ -11,6 +15,7 @@ export default function OpportunityPeople({ filter }: { filter: string }) {
 
   return (
     <>
+      <OpportunityOptions />
       {users.map((user: any) => (
         <div key={user.id} className="flex items-center gap-2">
           <div className="h-6 w-6 rounded-full bg-cyan-500"></div>
