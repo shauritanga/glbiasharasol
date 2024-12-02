@@ -26,7 +26,7 @@ export default function SignupForm() {
         className: "bg-green-500 text-white",
       });
       // Redirect to dashboard or home page after successful signup
-      router.push("/login");
+      router.replace("/");
     } else {
       toast({
         title: "Error",

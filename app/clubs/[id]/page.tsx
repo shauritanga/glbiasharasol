@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Video } from "@/lib/types";
 import FullHeightSlider from "@/components/slider";
 import { getPosts } from "@/actions/post";
+import UserSelector from "@/components/profession/profession";
 
 const images = [
   "/kili.jpeg",
@@ -71,7 +72,7 @@ export default async function FootballClubPage({
         <ClubFeed posts={posts} />
       </div>
       <div className="col-span-3 p-2">
-        <Opportunity />
+        <UserSelector />
         <div className="flex flex-col p-2">
           <h5 className="text-gray-800 mb-2">Health care</h5>
         </div>

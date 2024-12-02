@@ -1,11 +1,6 @@
-import { db } from "@/lib/db";
-import ParentsComponent from "@/components/parent";
-import Programmes from "@/components/programs";
-import Articles from "@/components/articles";
-import { Parents } from "@/lib/types";
 import FullHeightSlider from "@/components/slider";
 import { fetchSchoolById } from "@/actions/fetch_schools";
-import Opportunity from "@/components/opportunity";
+import UserSelector from "@/components/profession/profession";
 
 const nbcs = [
   "/nbc.png",
@@ -18,7 +13,6 @@ const nbcs = [
 export default async function SchoolDetailPage({ params }: { params: any }) {
   const schoolId = params.id;
   const school = await fetchSchoolById(schoolId);
-  const students = school?.students;
 
   return (
     <div className="grid grid-cols-12 min-h-screen p-2">
@@ -69,7 +63,7 @@ export default async function SchoolDetailPage({ params }: { params: any }) {
         ))}
       </div>
       <div className="col-span-3">
-        <Opportunity />
+        <UserSelector />
         <div className="h-[200px] my-4">
           <FullHeightSlider linkTo={true} images={nbcs} />
         </div>

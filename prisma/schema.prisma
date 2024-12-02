@@ -92,12 +92,10 @@ model Post {
   title       String
   description String
   userId      String
-  clubId      String
   createdAt   DateTime @default(now())
   mediaData   Bytes
   mediaName   String
   mediaType   String
-  club        Club     @relation(fields: [clubId], references: [id])
   user        User     @relation(fields: [userId], references: [id])
 
   @@map("posts")
@@ -112,7 +110,6 @@ model Club {
   images     String[]
   sponsors   String[]
   players    Player[]
-  posts      Post[]
 
   @@map("clubs")
 }

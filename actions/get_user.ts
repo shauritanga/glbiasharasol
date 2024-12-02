@@ -1,3 +1,4 @@
+"use server";
 import { db } from "@/lib/db";
 
 export const getUsers = async (chosenBusiness: String, club: String) => {
@@ -26,16 +27,39 @@ export const getUsers = async (chosenBusiness: String, club: String) => {
   }
 };
 
-export const getUserByPhoneNumber = async (phone: string) => {
+export const getUserById = async (id: string) => {
   try {
-    const parent = await db.user.findFirst({
+    const user = await db.user.findUnique({
       where: {
-        phone: phone,
+        id: id,
       },
     });
-    return parent;
+    return user;
   } catch (error) {
     console.log(error);
     return null;
   }
 };
+
+export async function getAllUsers(business: string) {
+  try {
+    const users = await db.user.findMany({
+      where: {
+        business: business,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        profession: true,
+        business: true,
+      },
+    });
+    return users;
+  } catch (error) {
+    console.error("Failed to fetch users:", error);
+    return [];
+  } finally {
+    await db.$disconnect();
+  }
+}
