@@ -1,11 +1,9 @@
 import { getAllUsers } from "@/data/user";
-import Opportunity from "@/components/opportunity";
 import { VideoSlider } from "@/components/video_slider";
 import ClubFeed from "@/components/club_feed";
 import Image from "next/image";
-import { Video } from "@/lib/types";
+import { Post, Video } from "@/lib/types";
 import FullHeightSlider from "@/components/slider";
-import { getPosts } from "@/actions/post";
 import UserSelector from "@/components/profession/profession";
 
 const images = [
@@ -45,6 +43,32 @@ async function getVideos(): Promise<Video[]> {
       link: "/video/2",
     },
   ];
+}
+
+let posts: Post[] = [
+  {
+    id: "1",
+    title: "First Post",
+    content: "This is the first post content.",
+    author: "John Doe",
+    type: "image",
+    url: "/stn.jpeg",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: "2",
+    title: "Second Post",
+    content: "This is the second post content.",
+    author: "Jane Smith",
+    type: "video",
+    url: "/videos/chelsea.mp4",
+    createdAt: new Date().toISOString(),
+  },
+];
+async function getPosts(): Promise<Post[]> {
+  // Simulate a delay to mimic a database call
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return posts;
 }
 
 export default async function FootballClubPage({

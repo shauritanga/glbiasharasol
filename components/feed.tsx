@@ -1,4 +1,4 @@
-import { Post } from "@prisma/client";
+import { Post } from "@/lib/types";
 import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 
@@ -14,7 +14,7 @@ export function Feed({ post }: PostProps) {
         <MoreHorizontal />
       </div>
       <div className="w-full h-[400px]">
-        {/* {post.type === "image" ? (
+        {post.type === "image" ? (
           <Image
             src={post.url.toString()}
             width={600}
@@ -31,7 +31,7 @@ export function Feed({ post }: PostProps) {
           >
             Your browser does not support the video tag.
           </video>
-        )} */}
+        )}
       </div>
     </div>
   );

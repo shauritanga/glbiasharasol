@@ -7,7 +7,7 @@ interface PostFeedProps {
 }
 
 import { Feed } from "./feed";
-import { Post } from "@prisma/client";
+import { Post } from "@/lib/types";
 
 export default function ClubFeed({ posts }: PostFeedProps) {
   return posts.map((post) => <Feed post={post} />);
