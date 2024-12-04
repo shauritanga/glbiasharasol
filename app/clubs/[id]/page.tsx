@@ -71,6 +71,15 @@ async function getPosts(): Promise<Post[]> {
   return posts;
 }
 
+const videoo = [
+  {
+    id: 1,
+    src: "/videos/mikocheni.mp4",
+    title: "Talent in mikocheni",
+    link: "/video/2",
+  },
+];
+
 export default async function FootballClubPage({
   searchParams,
 }: {
@@ -127,7 +136,7 @@ export default async function FootballClubPage({
           <h5 className="text-gray-800 mb-2">Sports & Talents</h5>
         </div>
         <div className="h-[230px] border rounded shadow-md pb-3">
-          <VideoSlider videos={videos} />
+          <VideoSlider videos={videoo} />
         </div>
       </div>
     </div>
