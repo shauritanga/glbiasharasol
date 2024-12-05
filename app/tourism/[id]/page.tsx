@@ -1,3 +1,5 @@
+import { BookAirDialog } from "@/components/book_airplane/book_air";
+import { BookHotelDialog } from "@/components/book_hotel";
 import FullHeightSlider from "@/components/slider";
 import { Airplay, Hotel, HousePlus, Plane } from "lucide-react";
 
@@ -15,14 +17,12 @@ export default function TouristSite() {
         className="h-[90vh] p-4"
       >
         <div className="m-auto w-max gap-4 flex h-8 p-4 items-center justify-between">
-          <span className="bg-white flex items-center p-2 gap-1 rounded cursor-pointer">
+          {/* <span className="bg-white flex items-center p-2 gap-1 rounded cursor-pointer">
             <Hotel className="h-4 w-4" />
             Book hotel
-          </span>
-          <span className="bg-white flex items-center p-2 gap-1 rounded cursor-pointer">
-            <Plane className="h-4 w-4" />
-            Book Airplane
-          </span>
+          </span> */}
+          <BookHotelDialog />
+          <BookAirDialog />
           <span className="bg-white flex items-center p-2 gap-1 rounded cursor-pointer">
             <HousePlus className="h-4 w-4" />
             Book Appartment
