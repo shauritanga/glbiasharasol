@@ -19,7 +19,7 @@ const navLinks: NavLink[] = [
   { name: "Agriculture", href: "/agriculture" },
   { name: "Industry", href: "/industry" },
   { name: "Transportation", href: "/transportation" },
-  { name: "Tourism", href: "/tourism" },
+  { name: "Tourism", href: "/tourism/zanzibar" },
 ];
 
 const NavBar: React.FC = async () => {

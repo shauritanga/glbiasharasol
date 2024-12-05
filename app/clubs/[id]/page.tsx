@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Post, Video } from "@/lib/types";
 import FullHeightSlider from "@/components/slider";
 import UserSelector from "@/components/profession/profession";
+import Link from "next/link";
 
 const images = [
   "/kili.jpeg",
@@ -127,9 +128,11 @@ export default async function FootballClubPage({
             <div className="flex flex-col p-2 mt-9">
               <h5 className="text-gray-800 mb-2">Tourism & Tourist sites</h5>
             </div>
-            <div className="h-[230px] border rounded shadow-md pb-3">
-              <FullHeightSlider linkTo={false} images={images} />
-            </div>
+            <Link href={`/tourism/zanzibar`}>
+              <div className="h-[230px] border rounded shadow-md pb-3">
+                <FullHeightSlider linkTo={false} images={images} />
+              </div>
+            </Link>
           </>
         )}
         <div className="flex flex-col p-2 mt-9">
